@@ -1,0 +1,7 @@
+{
+  "name": "IoT Data Platform Tutor",
+  "description": "An intelligent AI agent designed to facilitate learning for the 'From Devices to Data Platforms' blog post. It provides deep technical insights, interactive quizzes, and architectural explanations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
