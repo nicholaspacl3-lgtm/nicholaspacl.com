@@ -1,80 +1,218 @@
+Your new app, Standarin, looks incredible! The UI is super sleek, and features like the "AI Reading Forge" and the structured TOCFL Band vocabulary tracking show a really deep understanding of what language learners actually need. (The gamification with streaks and the Trophy Case is a great touch, too).
+
+Since this is currently your only project, we don't want to use a crowded grid layout with empty placeholders. Instead, I have designed a "Hero Project Deep-Dive" layout. It treats Standarin like a premium case study, using the insights from your screenshots to explain why you built it and how it works, leading right to the live app button.
+
+Here is the complete replacement code for your projects.html page. It includes the Deep Tech Glassmorphism styling so it matches the rest of your site perfectly.
+
+Instructions:
+Open your projects.html file.
+
+Delete everything currently in it.
+
+Paste the code below.
+
+(Optional but recommended) Where I put src="YOUR_IMAGE_PATH_HERE", you can replace it with the file paths to your actual screenshots (like Standarin 1.png) so they display on the site!
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Projects Portfolio • ESP32 Scrolling Showcase</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="robots" content="index,follow">
-  <meta name="generator" content="GrapesJS Studio">
-  <meta name="description" content="Explore ESP32 projects with a smooth scrolling showcase. Alternating reveal animations with images, titles, and concise descriptions."/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="./style.css">
+    <title>Projects | Nicholas Pacl</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="index,follow">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+      :root {
+        --bg-obsidian: #050b14;
+        --bg-teal: #0a192f;
+        --accent-cobalt: #3b82f6;
+        --accent-magenta: #d946ef; /* Nod to Standarin's UI colors */
+        --accent-cyan: #06b6d4;    /* Nod to Standarin's UI colors */
+        --text-main: #ffffff;
+        --text-muted: #cbd5e1;
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+      }
+      
+      body {
+        background: linear-gradient(135deg, var(--bg-obsidian), var(--bg-teal)) !important;
+        background-attachment: fixed !important;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        color: var(--text-main);
+      }
+
+      /* Typography */
+      h1, h2, h3, h4, .brand-name {
+        color: var(--text-main) !important;
+        font-family: 'Poppins', sans-serif;
+      }
+      p, span, li, .nav-link {
+        color: var(--text-muted) !important;
+        line-height: 1.7 !important;
+      }
+
+      /* Glassmorphism Elements */
+      .gjs-t-border, .project-card, .feature-card {
+        background: var(--glass-bg) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      /* Standarin Specific Gradient Text */
+      .standarin-title {
+        background: linear-gradient(to right, var(--accent-cyan), var(--accent-magenta));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-size: 2.5rem;
+      }
+
+      /* Buttons */
+      .hero-primary-cta {
+        background-color: var(--accent-cobalt) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 14px 28px !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.4) !important;
+        transition: all 0.3s ease !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .hero-primary-cta:hover {
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.7) !important;
+        background-color: #2563eb !important;
+        transform: translateY(-2px);
+        color: white !important;
+      }
+      
+      a { text-decoration: none; }
+      a:hover, .nav-link:hover { color: var(--accent-cobalt) !important; }
+
+      /* Fix Icon Colors */
+      img[src*="iconify"] { filter: invert(50%) sepia(90%) saturate(300%) hue-rotate(190deg) brightness(100%) !important; }
+      
+      /* Clean Nav */
+      .header-navbar {
+        background: rgba(5, 11, 20, 0.5) !important;
+        backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid var(--glass-border) !important;
+        position: sticky; top: 0; z-index: 50;
+      }
+
+      /* Layout Utilities */
+      .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+      @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+    </style>
   </head>
-  <body id="isbchg" class="gjs-t-body body-root"><header class="header-navbar"><div id="ibitr-3" class="header-container"><a href="./index.html" id="id8u3-3" class="group brand-link"><div id="ixr95-3" class="brand-mark"><img src="https://api.iconify.design/lucide-cpu.svg?color=white" alt="CPU Icon" id="ihzs9-3" class="brand-icon"/></div><div id="iemj8-3" class="brand-text"><span id="infzu-3" class="brand-name">Nicholas Pacl</span><span id="i48jw-3" class="brand-tagline">Electronics • IoT • Edge AI</span></div></a><nav id="ifua9-3" role="navigation" aria-label="Primary" class="primary-nav"><a href="./index.html" id="ir813-3" class="gjs-t-link nav-link">Home</a><a href="./about-me.html" id="ipb6f-3" class="gjs-t-link nav-link">About</a><a href="./projects.html" id="insc9-3" class="gjs-t-link nav-link">Projects</a><a href="./blog-homepage.html" id="imwsl-3" class="gjs-t-link nav-link">Blog</a><a href="./interactive-resume.html" id="i5jij-3" class="gjs-t-link nav-link">Resume</a></nav></div></header><main id="ih9rjh" class="main-content"><section id="i7gb6h" class="hero-section"><div id="iu4hw2" class="hero-container"><span id="ipvlpb" class="hero-eyebrow"><img src="https://api.iconify.design/lucide-sparkles.svg?color=%230ea5e9" alt="" class="hero-eyebrow-icon"/>
-          Live Portfolio
-        </span><h1 id="in5wdc" class="gjs-t-h1 hero-title">
-          Scroll to explore ESP32 projects
-        </h1><p id="i15p9z" class="hero-subtitle">The listings on this page are placeholders for potential future projects. </p><div class="hero-actions"><button type="button" aria-label="Scroll down hint" id="scroll-hint" class="hero-secondary-cta"><img src="https://api.iconify.design/lucide-chevrons-down.svg?color=%231f2937" alt="" class="scroll-hint-icon"/>
-            Scroll to explore
-          </button></div></div></section><section id="portfolio-start" class="portfolio-section"><div id="i4x8sl" class="portfolio-header"><h2 id="i7ogvh" class="gjs-t-h2 portfolio-title">Featured ESP32 Projects</h2><div class="portfolio-meta"><span>Alternating reveals</span><span aria-hidden="true" class="divider">|</span><span>Images are placeholders</span></div></div><ol class="projects-list"><li data-reveal="left" id="imdspn" class="group project-item"><div id="i0a854-2" class="project-content"><h3 id="ih544m-2" class="project-title">MQTT Plant Monitoring Dashboard</h3><p id="idwstd-2" class="project-description">
-              ESP32 reads soil moisture and DHT22 sensors, publishing via MQTT to a Node-RED dashboard for remote alerts and visualization.
-            </p><div id="iao0bv-2" class="project-meta"><img src="https://api.iconify.design/lucide-leaf.svg?color=%236b7280" alt="" id="i2bh3g-2" class="project-meta-icon"/><span id="iiazg7-2">IoT • MQTT • Node-RED</span></div></div><div id="ipdcb8-2" class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22plant%20sensor%22&amp;w=960&amp;h=540" alt="Placeholder: plant monitoring dashboard" loading="eager" id="iq34p5-2" class="project-image"/></div></li><li data-reveal="right" class="group project-item"><div class="project-content"><h3 class="project-title">FreeRTOS Dual-Core Weather Station</h3><p nb="">
-            </p></div><div class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22weather%20station%22&amp;w=960&amp;h=540" alt="Placeholder: weather station with sensors and OLED" loading="lazy" class="project-image"/></div></li><li data-reveal="left" id="ikwaui" class="group project-item"><div id="i0nz6a-2" class="project-content"><h3 id="itj3jj-2" class="project-title">ESP32-CAM Object Detection</h3><p id="ijveaz-2" class="project-description">
-              Streams video and runs TensorFlow Lite models for edge AI like anomaly detection in production lines.
-            </p><div id="ipxunu-2" class="project-meta"><img src="https://api.iconify.design/lucide-camera.svg?color=%236b7280" alt="" id="iuwtop-2" class="project-meta-icon"/><span id="ia57ev-2">AI • TFLite • ESP32-CAM</span></div></div><div id="if62yv-2" class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22object%20detection%22&amp;w=960&amp;h=540" alt="Placeholder: ESP32-CAM object detection preview" loading="lazy" id="i88vjk-2" class="project-image"/></div></li><li data-reveal="right" class="group project-item"><div class="project-content"><h3 class="project-title">Home Automation with OTA Updates</h3><p class="project-description">
-              Controls multiple relays via MQTT or Blynk app, supports over-the-air firmware updates with EEPROM state persistence.
-            </p><div class="project-meta"><img src="https://api.iconify.design/lucide-home.svg?color=%236b7280" alt="" class="project-meta-icon"/><span>Smart Home • OTA • MQTT</span></div></div><div class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22smart%20home%20relay%22&amp;w=960&amp;h=540" alt="Placeholder: home automation relays" loading="lazy" class="project-image"/></div></li><li data-reveal="left" id="i4j3ns" class="group project-item"><div id="i98mxh-2" class="project-content"><h3 id="ibivj5-2" class="project-title">ESP-NOW Multi-Node Relay Control</h3><p id="ihcybq-2" class="project-description">
-              Master ESP32 sends commands to slaves for real-time factory relay control without Wi‑Fi dependency.
-            </p><div id="i007oo-2" class="project-meta"><img src="https://api.iconify.design/lucide-radio.svg?color=%236b7280" alt="" id="i3fang-2" class="project-meta-icon"/><span id="i4pb7j-2">ESP‑NOW • Low Latency</span></div></div><div id="isnxai-2" class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22relay%20control%22&amp;w=960&amp;h=540" alt="Placeholder: multi-node relay control" loading="lazy" id="i8atbr-2" class="project-image"/></div></li><li data-reveal="right" class="group project-item"><div class="project-content"><h3 class="project-title">BLE Asset Tracker</h3><p class="project-description">
-              Uses MPU6050 and GPS for indoor positioning, multitasking location logging, and low-power BLE advertising.
-            </p><div class="project-meta"><img src="https://api.iconify.design/lucide-bluetooth.svg?color=%236b7280" alt="" class="project-meta-icon"/><span>BLE • GPS • Low Power</span></div></div><div class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22gps%20tracker%22&amp;w=960&amp;h=540" alt="Placeholder: BLE asset tracking" loading="lazy" class="project-image"/></div></li><li data-reveal="left" class="group project-item"><div class="project-content"><h3 class="project-title">Voice-Controlled Smart Fan</h3><p class="project-description">
-              Integrates microphone for keyword spotting, PWM fan control, and MQTT integration for smart automation.
-            </p><div class="project-meta"><img src="https://api.iconify.design/lucide-mic.svg?color=%236b7280" alt="" class="project-meta-icon"/><span>Audio • PWM • MQTT</span></div></div><div class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22smart%20fan%22&amp;w=960&amp;h=540" alt="Placeholder: voice-controlled smart fan" loading="lazy" class="project-image"/></div></li><li data-reveal="right" id="i4ggff" class="group project-item"><div id="idrr22-2" class="project-content"><h3 id="ib17wt-2" class="project-title">Industrial PLC Retrofit</h3><p id="iw5ykx-2" class="project-description">
-              Monitors machinery with ESP32 PLC Arduino core; FreeRTOS tasks manage data acquisition and Modbus communications.
-            </p><div id="izo0hh-2" class="project-meta"><img src="https://api.iconify.design/lucide-factory.svg?color=%236b7280" alt="" id="ihizbh-2" class="project-meta-icon"/><span id="igyh8q-2">PLC • Modbus • FreeRTOS</span></div></div><div id="iidsgh-2" class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22industrial%20plc%22&amp;w=960&amp;h=540" alt="Placeholder: industrial PLC retrofit" loading="lazy" id="i4pzjj-2" class="project-image"/></div></li><li data-reveal="left" class="group project-item"><div class="project-content"><h3 class="project-title">Firebase Realtime Dashboard</h3><p class="project-description">
-              Syncs sensor data such as temperature and relay states to Firebase for web/mobile dashboards with authentication.
-            </p><div class="project-meta"><img src="https://api.iconify.design/lucide-cloud.svg?color=%236b7280" alt="" class="project-meta-icon"/><span>Firebase • Realtime</span></div></div><div class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22firebase%20dashboard%22&amp;w=960&amp;h=540" alt="Placeholder: Firebase realtime dashboard" loading="lazy" class="project-image"/></div></li><li data-reveal="right" id="i7kw0x" class="group project-item"><div id="i7or3s-2" class="project-content"><h3 id="iv2mh7-2" class="project-title">Edge Impulse AI Camera</h3><p id="ipuu7y-2" class="project-description">
-              Trains custom models for quality inspection and deploys on ESP32‑CAM for local inference and real-time alerts.
-            </p><div id="it8ogv-2" class="project-meta"><img src="https://api.iconify.design/lucide-brain.svg?color=%236b7280" alt="" id="izczgq-2" class="project-meta-icon"/><span id="i8rd72-2">Edge AI • Vision</span></div></div><div id="i7ohqh-2" class="project-media-wrapper"><img src="https://app.grapesjs.com/api/assets/random-image?query=%22edge%20impulse%20camera%22&amp;w=960&amp;h=540" alt="Placeholder: Edge Impulse AI camera" loading="lazy" id="ijaira-2" class="project-image"/></div></li></ol><div class="end-note-wrapper"></div></section><div id="iixlnvy-2-6" class="footer-container"><div class="footer-top-row"><div class="footer-brand"><div class="footer-brand-row"><div class="footer-brand-mark"><img alt="Logo" src="https://api.iconify.design/lucide-compass.svg?color=%230ea5e9" class="footer-brand-icon"/></div><span id="iit1hzi-2-6" class="footer-brand-name">Nicholas Pacl</span></div></div></div><div class="footer-divider"></div><div class="footer-bottom"><p id="iam0o79" class="footer-copyright">© 2025 Nicholas Pacl All rights reserved.</p><div class="footer-social"></div></div></div></main><footer class="footer-section"></footer><script>
-    (function () {
-      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  <body class="body">
+    <header class="header-navbar">
+      <div class="header-container" style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="./index.html" class="group brand-link" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="https://api.iconify.design/lucide-cpu.svg?color=white" alt="CPU Icon" width="24"/>
+          <div style="display: flex; flex-direction: column;">
+            <span class="brand-name" style="font-size: 1.25rem;">Nicholas Pacl</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Strategy • Technology • Operations</span>
+          </div>
+        </a>
+        <nav role="navigation" style="display: flex; gap: 1.5rem;">
+          <a href="./index.html" class="nav-link">Home</a>
+          <a href="./about-me.html" class="nav-link">About</a>
+          <a href="./projects.html" class="nav-link" style="border-bottom: 2px solid #3b82f6; color: white !important;">Projects</a>
+          <a href="./blog-homepage.html" class="nav-link">Blog</a>
+          <a href="./interactive-resume.html" class="nav-link">Resume</a>
+        </nav>
+      </div>
+    </header>
 
-      var items = document.querySelectorAll('[data-reveal]');
-      items.forEach(function (el, idx) {
-        var side = el.getAttribute('data-reveal') === 'right' ? 'right' : 'left';
-        el.style.transition = 'transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 700ms ease';
-        el.style.opacity = '0';
-        el.style.transform = side === 'right' ? 'translateX(48px)' : 'translateX(-48px)';
-      });
+    <main>
+      <section style="text-align: center; padding: 4rem 2rem 1rem 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Featured Work</h1>
+        <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Building tools at the intersection of technology, language, and operational efficiency.</p>
+      </section>
 
-      function reveal(el) {
-        el.style.opacity = '1';
-        el.style.transform = 'translateX(0px)';
-      }
+      <section class="container">
+        <div class="gjs-t-border project-card" style="padding: 3rem;">
+          <div class="grid-2">
+            <div>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-cyan);">Live Web App</span>
+              <h2 class="standarin-title" style="margin: 0.5rem 0 1rem 0;">STANDARIN</h2>
+              <p style="font-size: 1.1rem; font-weight: 500; color: white !important; margin-bottom: 1rem;">Cultivate Fluency in Traditional Chinese</p>
+              <p style="margin-bottom: 2rem;">
+                Born out of my own experience studying in Taipei, Standarin is an AI-powered language platform designed specifically for learners tackling the rigorous TOCFL framework. It bridges the gap between static vocabulary lists and dynamic reading comprehension.
+              </p>
+              
+              <a href="https://stando-mando.web.app" target="_blank" rel="noopener noreferrer" class="hero-primary-cta">
+                <img src="https://api.iconify.design/lucide-external-link.svg?color=white" width="18" style="filter: none !important;"/>
+                Launch App
+              </a>
+              
+              <div style="margin-top: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span style="padding: 4px 12px; border-radius: 20px; border: 1px solid var(--glass-border); font-size: 0.8rem;">GenAI / LLMs</span>
+                <span style="padding: 4px 12px; border-radius: 20px; border: 1px solid var(--glass-border); font-size: 0.8rem;">Gamification UI</span>
+                <span style="padding: 4px 12px; border-radius: 20px; border: 1px solid var(--glass-border); font-size: 0.8rem;">Web App</span>
+              </div>
+            </div>
 
-      if (prefersReduced) {
-        items.forEach(function (el) { reveal(el); });
-      } else if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              reveal(entry.target);
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15 });
-        items.forEach(function (el) { io.observe(el); });
-      } else {
-        items.forEach(function (el) { reveal(el); });
-      }
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+              <img src="https://app.grapesjs.com/api/assets/random-image?query=dashboard%20ui%20dark%20mode&w=800&h=600" alt="Standarin Dashboard" style="width: 100%; display: block;" />
+            </div>
+          </div>
 
-      var hint = document.getElementById('scroll-hint');
-      if (hint) {
-        hint.addEventListener('click', function () {
-          var target = document.getElementById('portfolio-start');
-          if (target) target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
-        });
-      }
-    })();
-  </script></body>
+          <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 3rem 0;" />
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            
+            <div class="feature-card" style="padding: 1.5rem;">
+              <img src="https://api.iconify.design/lucide-flame.svg?color=white" width="24" style="margin-bottom: 1rem;"/>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Gamified Consistency</h3>
+              <p style="font-size: 0.9rem;">To counter the grind of character memorization, the app features a robust "Training Hub" with daily streaks, experience points (XP), and an unlockable Trophy Case to maintain user motivation.</p>
+            </div>
+
+            <div class="feature-card" style="padding: 1.5rem;">
+              <img src="https://api.iconify.design/lucide-book-open-check.svg?color=white" width="24" style="margin-bottom: 1rem;"/>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">AI Reading Forge</h3>
+              <p style="font-size: 0.9rem;">A dynamic tool that leverages generative AI to instantly create Traditional Chinese reading passages tailored strictly to the user's exact TOCFL Band, ensuring perfectly leveled comprehensible input.</p>
+            </div>
+
+            <div class="feature-card" style="padding: 1.5rem;">
+              <img src="https://api.iconify.design/lucide-bar-chart-3.svg?color=white" width="24" style="margin-bottom: 1rem;"/>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Granular Progress Tracking</h3>
+              <p style="font-size: 0.9rem;">The Vocabulary Library organizes over 6,700 words across structured tiers (Bands A, B, C), giving learners deep visibility into their mastery percentages and remaining goals.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      
+      <section style="text-align: center; padding: 4rem 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; background: rgba(5,11,20,0.3);">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">More Infrastructure Projects Incoming...</h3>
+        <p style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">Currently transitioning from software to hardware. Future projects exploring Edge AI, ESP32 integrations, and IoT architecture will be documented here.</p>
+      </section>
+
+    </main>
+
+    <footer style="background: rgba(5, 11, 20, 0.5); backdrop-filter: blur(16px); border-top: 1px solid var(--glass-border); padding: 2rem; text-align: center;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <img alt="Logo" src="https://api.iconify.design/lucide-cpu.svg?color=%233b82f6" width="24"/>
+          <span style="color: #fff; font-weight: 600;">Nicholas Pacl</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">© 2026 Nicholas Pacl. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
