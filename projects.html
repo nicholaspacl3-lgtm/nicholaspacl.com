@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -98,8 +97,38 @@ HTML
 
       /* Layout Utilities */
       .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-      @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+      
+      /* Collage Grid Styles */
+      .collage-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .collage-item {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        background: #0a0a0a; /* Fallback for transparency */
+      }
+      .collage-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .collage-item:hover img {
+        transform: scale(1.05);
+      }
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 768px) { 
+        .grid-2 { grid-template-columns: 1fr; gap: 2rem; } 
+      }
     </style>
   </head>
   
@@ -152,8 +181,22 @@ HTML
               </div>
             </div>
 
-            <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-              <img src="https://app.grapesjs.com/api/assets/random-image?query=dashboard%20ui%20dark%20mode&w=800&h=600" alt="Standarin Dashboard" style="width: 100%; display: block;" />
+            <div class="collage-grid">
+              <div class="collage-item span-2">
+                <img src="./Standarin.png" alt="Standarin Logo and Get Started" />
+              </div>
+              
+              <div class="collage-item">
+                <img src="./Standarin 1.png" alt="Standarin Training Hub Dashboard" />
+              </div>
+              
+              <div class="collage-item">
+                <img src="./Standarin 2.png" alt="Standarin Vocabulary Library" />
+              </div>
+
+              <div class="collage-item span-2">
+                <img src="./Standarin 3.png" alt="Standarin Trophy Case and Streaks" />
+              </div>
             </div>
           </div>
 
@@ -185,7 +228,7 @@ HTML
       
       <section style="text-align: center; padding: 4rem 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; background: rgba(5,11,20,0.3);">
         <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">More Infrastructure Projects Incoming...</h3>
-        <p style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">Currently transitioning from software to hardware. Future projects exploring Edge AI, ESP32 integrations, and IoT architecture will be documented here.</p>
+        <p style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">Currently transitioning from software back into hardware and operations. Future projects exploring Edge AI, ESP32 integrations, and IoT architecture will be documented here.</p>
       </section>
 
     </main>
