@@ -1,35 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Blog — Clean, Modern Tech Insights</title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="robots" content="index,follow">
-  <meta name="generator" content="GrapesJS Studio">
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="./style.css">
+    <title>Nicholas Pacl | Strategy, Technology, Operations</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="index,follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./style.css">
+    
+    <style>
+      :root {
+        --bg-obsidian: #050b14;
+        --bg-teal: #0a192f;
+        --accent-cobalt: #3b82f6;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+      }
+      body {
+        background: linear-gradient(135deg, var(--bg-obsidian), var(--bg-teal));
+        background-attachment: fixed;
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+      }
+      /* Glassmorphism utility */
+      .gjs-t-border, .post-card, .hero-card, .tech-stack-card {
+        background: var(--glass-bg) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+        color: var(--text-main);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+      .post-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-cobalt) !important;
+      }
+      h1, h2, h3, h4, .brand-name, .nav-link, .post-title {
+        color: #ffffff !important;
+        font-family: 'Poppins', sans-serif;
+      }
+      p, .section-subtitle, .post-excerpt, .brand-tagline, .meta-badge {
+        color: var(--text-muted) !important;
+        line-height: 1.6;
+      }
+      /* Button Styling */
+      .hero-primary-cta {
+        background-color: var(--accent-cobalt) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 12px 24px !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        display: inline-block;
+      }
+      .hero-primary-cta:hover {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+        background-color: #2563eb !important;
+      }
+      .hero-secondary-cta {
+        border: 1px solid var(--accent-cobalt) !important;
+        color: var(--accent-cobalt) !important;
+        background: transparent !important;
+        border-radius: 8px !important;
+        padding: 12px 24px !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      .hero-secondary-cta:hover {
+        background: rgba(59, 130, 246, 0.1) !important;
+      }
+      .read-link, .header-link {
+        color: var(--accent-cobalt) !important;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      /* Layout adjustments for injected Hero */
+      .hero-container {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .hero-text { flex: 1; min-width: 300px; }
+      .hero-image-wrapper { flex: 0.6; min-width: 250px; }
+      .hero-image {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text-main);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        transition: all 0.2s ease;
+      }
+      .social-btn:hover {
+        border-color: var(--accent-cobalt);
+        color: var(--accent-cobalt);
+      }
+    </style>
   </head>
-  <body id="iplr4el" class="gjs-t-body body-root"><header id="i2g9ybr" class="navbar-section"><div id="ibitr-10" class="header-container"><a href="./index.html" id="id8u3-10" class="group brand-link"><div id="ixr95-10" class="brand-mark"><img src="https://api.iconify.design/lucide-cpu.svg?color=white" alt="CPU Icon" id="ihzs9-10" class="brand-icon"/></div><div id="iemj8-10" class="brand-text"><span id="infzu-10" class="brand-name">Nicholas Pacl</span><span id="i48jw-10" class="brand-tagline">Electronics • IoT • Edge AI</span></div></a><nav id="ifua9-10" role="navigation" aria-label="Primary" class="primary-nav"><a href="./index.html" id="ir813-10" class="gjs-t-link nav-link">Home</a><a href="./about-me.html" id="ipb6f-10" class="gjs-t-link nav-link">About</a><a href="./projects.html" id="insc9-10" class="gjs-t-link nav-link">Projects</a><a href="./blog-homepage.html" id="imwsl-10" class="gjs-t-link nav-link">Blog</a><a href="./interactive-resume.html" id="i5jij-10" class="gjs-t-link nav-link">Resume</a></nav></div></header><main class="main-content"><section id="featured" class="featured-section"><div class="featured-container"><div class="section-header"><div><h2 class="gjs-t-h2 section-title">Featured posts</h2><p id="iy3b6p1" class="section-subtitle">Essays on topics inspired by my Work, School, and Life</p></div><a href="./blog-homepage.html" id="iqf6rmk" class="gjs-t-link header-link">
-  View all posts
-  <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%230ea5e9" class="arrow-icon"/></a></div><div class="cards-grid"><article id="ipanp2o" class="group gjs-t-border post-card"><div class="post-body"><div class="post-meta-row"><span class="meta-badge">Strategy</span><span class="meta-divider"></span><span>7 min read</span></div><h3 id="itk0oy1" class="post-title">Navigating the Dynamic Matrix of Taiwan’s Business Culture</h3><p id="iojrhqj" class="post-excerpt">
-  A plain‑spoken guide to seeing how a company works as a whole, reading what people need, and making choices that different teams can agree on and follow—especially in Taiwan’s workplaces.
-</p><div class="post-actions"><a href="./navigating-the-dynamic-matrix.html" id="idzu9f1" class="read-link">
-  Read article
-  <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%230ea5e9" class="arrow-icon"/></a><button type="button" class="share-button"><img alt="" src="https://api.iconify.design/lucide-share-2.svg?color=%236b7280" class="share-icon"/>
-                    Share
-                  </button></div></div></article><article id="iiarl8f" class="group gjs-t-border post-card"><div id="i7wc2c8" class="post-body"><div class="post-meta-row"><span class="meta-badge">Architecture</span><span class="meta-divider"></span><span>6 min read</span></div><h3 id="i4iaonj" class="post-title">From Devices to Data Platforms</h3><p id="igoeol9" class="post-excerpt">An overview of the medical device industry, regulatory compliance pathways, and current relevant business models. </p><div class="post-actions"><a href="./from-devices-to-data-platforms.html" id="i3m9t7c" class="read-link">
-  Read article
-  <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%230ea5e9" class="arrow-icon"/></a><button type="button" class="share-button"><img alt="" src="https://api.iconify.design/lucide-share-2.svg?color=%236b7280" class="share-icon"/>
-                    Share
-                  </button></div></div></article><article id="ic9dzcd" class="group gjs-t-border post-card"><div class="post-body"><div class="post-meta-row"><span class="meta-badge">Explainer</span><span class="meta-divider"></span><span>5 min read</span></div><h3 class="post-title">
-                  Quantum Computing in Plain English
-                </h3><p id="inp3a1m" class="post-excerpt">
-  A simple look at what makes a quantum computer different, how it can explore many possibilities at once, and where it might help in real life—not just theory.
-</p><div class="post-actions"><a href="./quantum-computing-in-plain-english.html" id="itanpor" class="read-link">
-  Read article
-  <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%230ea5e9" class="arrow-icon"/></a><button type="button" class="share-button"><img alt="" src="https://api.iconify.design/lucide-share-2.svg?color=%236b7280" class="share-icon"/>
-                    Share
-                  </button></div></div></article></div></div></section></main><footer id="i40692l" class="footer-section"><div id="iixlnvy-2-3" class="footer-container"><div class="footer-top-row"><div class="footer-brand"><div class="footer-brand-row"><div class="footer-brand-mark"><img alt="Logo" src="https://api.iconify.design/lucide-compass.svg?color=%230ea5e9" class="footer-brand-icon"/></div><span id="iit1hzi-2-3" class="footer-brand-name">Nicholas Pacl</span></div></div></div><div class="footer-divider"></div><div class="footer-bottom"><p id="ibf5cbo" class="footer-copyright">© 2025 Nicholas Pacl All rights reserved.</p><div class="footer-social"></div></div></div></footer></body>
+  <body id="iplr4el" class="gjs-t-body body-root">
+    
+    <header id="i2g9ybr" class="navbar-section">
+      <div id="ibitr-10" class="header-container">
+        <a href="./index.html" id="id8u3-10" class="group brand-link">
+          <div id="ixr95-10" class="brand-mark">
+            <img src="https://api.iconify.design/lucide-cpu.svg?color=white" alt="CPU Icon" id="ihzs9-10" class="brand-icon"/>
+          </div>
+          <div id="iemj8-10" class="brand-text">
+            <span id="infzu-10" class="brand-name">Nicholas Pacl</span>
+            <span id="i48jw-10" class="brand-tagline">Strategy • Technology • Operations</span>
+          </div>
+        </a>
+        <nav id="ifua9-10" role="navigation" aria-label="Primary" class="primary-nav">
+          <a href="./index.html" id="ir813-10" class="gjs-t-link nav-link">Home</a>
+          <a href="./about-me.html" id="ipb6f-10" class="gjs-t-link nav-link">About</a>
+          <a href="./projects.html" id="insc9-10" class="gjs-t-link nav-link">Projects</a>
+          <a href="./blog-homepage.html" id="imwsl-10" class="gjs-t-link nav-link">Blog</a>
+          <a href="./interactive-resume.html" id="i5jij-10" class="gjs-t-link nav-link">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      
+      <section class="hero-container">
+        <div class="hero-text gjs-t-border hero-card" style="padding: 3rem;">
+          <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Bridging Strategy, Technology, & Global Operations</h1>
+          <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            I am a data-driven operations professional and transformational leader focused on driving efficiency within complex, high-stakes environments. I specialize in streamlining processes, leading cross-functional teams, and translating technical vision into measurable results.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="./projects.html" class="hero-primary-cta">View My Projects</a>
+            <a href="./about-me.html" class="hero-secondary-cta">About Me</a>
+          </div>
+          
+          <div class="social-links">
+            <a href="#" class="social-btn">
+              <img src="https://api.iconify.design/lucide-github.svg?color=white" width="18"/> GitHub
+            </a>
+            <a href="#" class="social-btn">
+              <img src="https://api.iconify.design/lucide-linkedin.svg?color=white" width="18"/> LinkedIn
+            </a>
+            <a href="#" class="social-btn">
+              <img src="https://api.iconify.design/lucide-mail.svg?color=white" width="18"/> Email
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-image-wrapper">
+          <img alt="Nicholas Pacl Portrait" src="https://cdn.grapesjs.com/workspaces/cmimma6ge0v1lywsuj7512s2z/assets/03c08fc3-27af-4d48-a2c6-cd26428a17ee__img6455-1.png" class="hero-image"/>
+        </div>
+      </section>
+      <section id="featured" class="featured-section" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem 2rem;">
+        <div class="featured-container">
+          <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+            <div>
+              <h2 class="gjs-t-h2 section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Featured Insights</h2>
+              <p id="iy3b6p1" class="section-subtitle">Essays on strategy, technology, and cross-cultural leadership.</p>
+            </div>
+            <a href="./blog-homepage.html" id="iqf6rmk" class="gjs-t-link header-link">
+              View all posts
+              <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%233b82f6" class="arrow-icon" style="vertical-align: middle;"/>
+            </a>
+          </div>
+          
+          <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <article id="ipanp2o" class="group gjs-t-border post-card" style="padding: 2rem; display: flex; flex-direction: column;">
+              <div class="post-body" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="post-meta-row" style="margin-bottom: 1rem; font-size: 0.9rem;">
+                  <span class="meta-badge" style="color: var(--accent-cobalt) !important; font-weight: 600;">Strategy</span>
+                  <span class="meta-divider" style="margin: 0 0.5rem;">•</span>
+                  <span>7 min read</span>
+                </div>
+                <h3 id="itk0oy1" class="post-title" style="margin-bottom: 1rem; font-size: 1.4rem;">Navigating the Dynamic Matrix of Taiwan’s Business Culture</h3>
+                <p id="iojrhqj" class="post-excerpt" style="flex: 1;">
+                  A plain‑spoken guide to seeing how a company works as a whole, reading what people need, and making choices that different teams can agree on and follow—especially in Taiwan’s workplaces.
+                </p>
+                <div class="post-actions" style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                  <a href="./navigating-the-dynamic-matrix.html" id="idzu9f1" class="read-link">Read article <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%233b82f6" style="vertical-align: middle;"/></a>
+                </div>
+              </div>
+            </article>
+
+            <article id="iiarl8f" class="group gjs-t-border post-card" style="padding: 2rem; display: flex; flex-direction: column;">
+              <div id="i7wc2c8" class="post-body" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="post-meta-row" style="margin-bottom: 1rem; font-size: 0.9rem;">
+                  <span class="meta-badge" style="color: var(--accent-cobalt) !important; font-weight: 600;">Architecture</span>
+                  <span class="meta-divider" style="margin: 0 0.5rem;">•</span>
+                  <span>6 min read</span>
+                </div>
+                <h3 id="i4iaonj" class="post-title" style="margin-bottom: 1rem; font-size: 1.4rem;">From Devices to Data Platforms</h3>
+                <p id="igoeol9" class="post-excerpt" style="flex: 1;">
+                  An overview of the medical device industry, regulatory compliance pathways, and current relevant business models.
+                </p>
+                <div class="post-actions" style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                  <a href="./from-devices-to-data-platforms.html" id="i3m9t7c" class="read-link">Read article <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%233b82f6" style="vertical-align: middle;"/></a>
+                </div>
+              </div>
+            </article>
+
+            <article id="ic9dzcd" class="group gjs-t-border post-card" style="padding: 2rem; display: flex; flex-direction: column;">
+              <div class="post-body" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="post-meta-row" style="margin-bottom: 1rem; font-size: 0.9rem;">
+                  <span class="meta-badge" style="color: var(--accent-cobalt) !important; font-weight: 600;">Explainer</span>
+                  <span class="meta-divider" style="margin: 0 0.5rem;">•</span>
+                  <span>5 min read</span>
+                </div>
+                <h3 class="post-title" style="margin-bottom: 1rem; font-size: 1.4rem;">Quantum Computing in Plain English</h3>
+                <p id="inp3a1m" class="post-excerpt" style="flex: 1;">
+                  A simple look at what makes a quantum computer different, how it can explore many possibilities at once, and where it might help in real life—not just theory.
+                </p>
+                <div class="post-actions" style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                  <a href="./quantum-computing-in-plain-english.html" id="itanpor" class="read-link">Read article <img alt="" src="https://api.iconify.design/lucide-arrow-right.svg?color=%233b82f6" style="vertical-align: middle;"/></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="i40692l" class="footer-section" style="padding: 2rem; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 2rem;">
+      <div id="iixlnvy-2-3" class="footer-container">
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="footer-brand-row" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+              <img alt="Logo" src="https://api.iconify.design/lucide-compass.svg?color=%233b82f6" class="footer-brand-icon"/>
+              <span id="iit1hzi-2-3" class="footer-brand-name" style="color: #fff; font-weight: 600;">Nicholas Pacl</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider" style="margin: 1rem 0;"></div>
+        <div class="footer-bottom">
+          <p id="ibf5cbo" class="footer-copyright" style="color: var(--text-muted); font-size: 0.9rem;">© 2026 Nicholas Pacl. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
