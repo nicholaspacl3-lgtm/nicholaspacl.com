@@ -119,26 +119,4 @@ a:hover {
   color: #60a5fa !important;
 }
 
-/* 9. Forms & Inputs */
-input, textarea, select, .search-form, .email-field {
-  background: rgba(0, 0, 0, 0.2) !important;
-  border: 1px solid var(--glass-border) !important;
-  color: #ffffff !important;
-}
-input:focus, textarea:focus {
-  border-color: var(--accent-cobalt) !important;
-  outline: none !important;
-}
-
-/* 10. Icon Inversion (Turns dark icons light/blue to match theme) */
-img[src*="iconify"], .feature-icon, .social-icon, .tech-icon, .project-icon {
-  filter: invert(100%) opacity(80%) !important; /* Turns black icons slightly muted white */
-}
-.brand-icon, .hero-badge-icon {
-  filter: invert(50%) sepia(90%) saturate(300%) hue-rotate(190deg) brightness(100%) !important; /* Turns icons Cobalt Blue */
-}
-
-/* Clean up any lingering white backgrounds from GrapesJS IDs */
-#iqcwgg, #ioou23, #iplr4el {
-  background: transparent !important;
-}
+/* 9. Forms & Inputs
