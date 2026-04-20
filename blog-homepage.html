@@ -228,10 +228,39 @@
         <div class="subscribe-card" style="max-width: 600px; margin: 0 auto; padding: 3rem;">
             <h2 style="font-size: 2rem; margin-bottom: 1rem;">Stay Updated</h2>
             <p style="margin-bottom: 2rem;">Get my latest essays on operations, AI, and cross-cultural tech sent directly to your inbox. No spam, just signal.</p>
-            <form style="display: flex; flex-direction: column; align-items: center;">
-                <input type="email" placeholder="Enter your email address" class="subscribe-input"/>
-                <button type="submit" class="hero-primary-cta" style="width: 100%; cursor: pointer;">Subscribe</button>
+            <form id="subscribeForm" style="display: flex; flex-direction: column; align-items: center;">
+                <input type="email" id="subscribeEmail" placeholder="Enter your email address" class="subscribe-input" required/>
+                <button type="submit" id="subscribeBtn" class="hero-primary-cta" style="width: 100%; cursor: pointer;">Subscribe</button>
+                <p id="subscribeMsg" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></p>
             </form>
+            <script>
+              document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('subscribeEmail').value.trim();
+                const btn = document.getElementById('subscribeBtn');
+                const msg = document.getElementById('subscribeMsg');
+                btn.disabled = true;
+                btn.textContent = 'Subscribing…';
+                fetch('https://script.google.com/macros/s/AKfycbx0CvkZYFngOqbQbNM73Q8N1i4fDJYWtciT8UMJW_dHFfKcQz9BkFaRfDVMp4mqpY00fA/exec', {
+                  method: 'POST',
+                  mode: 'no-cors',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: 'email=' + encodeURIComponent(email)
+                }).then(function() {
+                  msg.textContent = '✓ You\'re on the list. Talk soon.';
+                  msg.style.color = '#4ade80';
+                  msg.style.display = 'block';
+                  btn.textContent = 'Subscribed';
+                  document.getElementById('subscribeEmail').value = '';
+                }).catch(function() {
+                  msg.textContent = 'Something went wrong — try again.';
+                  msg.style.color = '#f87171';
+                  msg.style.display = 'block';
+                  btn.disabled = false;
+                  btn.textContent = 'Subscribe';
+                });
+              });
+            </script>
         </div>
       </section>
 
